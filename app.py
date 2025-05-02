@@ -12,7 +12,7 @@ ALLOWED_EXTENSIONS = {'pdf'}
 
 # === CONFIGURATION ===
 GOOGLE_DRIVE_FOLDER_ID = '148AHAnm100uQ4wgajcMWwR-qNEswPdCT'
-CREDENTIALS_FILE = 'credentials.json'
+CREDENTIALS_FILE = '/home/dlf/www/credentials.json'
 
 # === Google API setup ===
 scope = [
