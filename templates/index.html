@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Den lékařským fyzikem – FJFI ČVUT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container py-4">
+    <!-- Header image -->
+    <div class="text-center mb-4">
+        <img src="{{ url_for('static', filename='Head.jpg') }}" class="img-fluid rounded shadow-sm" alt="Den lékařským fyzikem – banner">
+    </div>
+
+    <!-- Title and Date -->
+    <div class="text-center mb-5">
+        <h1 class="display-5 text-primary">Den lékařským fyzikem</h1>
+        <p class="lead text-dark mb-1">4. června 2025</p>
+        <p class="text-muted">FJFI ČVUT v Praze</p>
+    </div>
+
+    <!-- Info text -->
+    <div class="bg-white p-4 shadow-sm rounded mb-5">
+        <p>
+            Akce <strong>Den lékařským fyzikem</strong> vznikla za účelem uvést v povědomí studijní program, který se nejen rychle rozvíjí,
+            ale především zachraňuje lidské životy. Málokdo tuší, že v nemocnici musí být přítomen <strong>radiologický fyzik</strong>,
+            který se stará o rentgeny, klinické urychlovače a další zařízení, zajišťuje radiační ochranu a plánuje léčbu pacientů.
+            Nedostatek odborníků v tomto oboru je nejen v Česku, ale i celosvětově, neboť přibývá specializovaných léčebných center.
+        </p>
+        <p>
+            Tato akce je určena studentům středních škol starších 15 let a čerstvým absolventům. Účast pedagogů a rodinných příslušníků není z kapacitních důvodů možná.
+        </p>
+        <p>
+            Na akci je nutná <strong>včasná a individuální registrace</strong> prostřednictvím formuláře níže. Pokud odkaz není dostupný, registrace již není možná.
+            Rozhodnutí o přijetí účastníků a přidělení na praktické úlohy a exkurze bude sděleno e-mailem <strong>do 28. 5. 2025 (23:59)</strong>.
+            Přidělené úlohy a exkurze <strong>nelze měnit</strong>, protože se jedná o pracoviště s ionizujícím zářením a podléhá evidenci.
+        </p>
+        <p>
+            Informace z registrace budou použity pouze pro účely akce a evidenci požadovanou <strong>Státním úřadem pro jadernou bezpečnost</strong>.
+        </p>
+        <p>
+            Během akce budou pořizovány fotografie k využití na webu ČVUT, sociálních sítích a v publikacích. Účastí na akci dáváte <strong>souhlas s fotografováním</strong>.
+        </p>
+    </div>
+<!-- Required documents -->
+<div class="bg-white p-4 shadow-sm rounded mb-5">
+    <h5 class="mb-3 text-primary">Dokumenty ke stažení</h5>
+    <p><strong>Doporučení od učitele fyziky</strong> je povinnou součástí registrace pro všechny účastníky.</p>
+    <p>Účastníci mladší 16 let musí navíc dodat vyplněné souhlasy od zákonného zástupce:</p>
+
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <a href="{{ url_for('static', filename='doporuceni_na_DLF.pdf') }}" class="btn btn-outline-primary btn-sm" download>
+                📄 Doporučení od učitele fyziky (PDF)
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="{{ url_for('static', filename='Souhlas GDPR_06_2025.docx') }}" class="btn btn-outline-primary btn-sm" download>
+                📄 Souhlas se zpracováním osobních údajů (GDPR) – pro účastníky &lt; 16 let
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="{{ url_for('static', filename='Souhlas se vstupem do kontrolovaného pásma_4062025.docx') }}" class="btn btn-outline-primary btn-sm" download>
+                📄 Souhlas se vstupem do kontrolovaného pásma – pro účastníky &lt; 16 let
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+    <!-- Registration button -->
+    <div class="text-center mb-5">
+        <a href="{{ url_for('register') }}" class="btn btn-lg btn-primary px-5 py-3 fs-4">Registrace</a>
+    </div>
+</div>
+
+</body>
+</html>

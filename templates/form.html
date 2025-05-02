@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrace – Den lékařským fyzikem</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container py-5">
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-4">
+            <h1 class="text-center mb-2">Registrace na Den lékařským fyzikem</h1>
+            <p class="text-center text-muted mb-4">4. června 2025</p>
+
+            <form method="POST" action="/submit" enctype="multipart/form-data">
+
+                <!-- === Osobní údaje === -->
+                <h5 class="mb-3">Základní informace</h5>
+
+                <div class="mb-3">
+                    <label class="form-label">E-mail</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
+
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Jméno</label>
+                        <input type="text" name="first_name" class="form-control" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Příjmení</label>
+                        <input type="text" name="last_name" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Typ střední školy</label>
+                    <div class="form-check"><input class="form-check-input" type="radio" name="school_type" value="8G" required> Osmileté gymnázium</div>
+                    <div class="form-check"><input class="form-check-input" type="radio" name="school_type" value="6G"> Šestileté gymnázium</div>
+                    <div class="form-check"><input class="form-check-input" type="radio" name="school_type" value="4G"> Čtyřleté gymnázium</div>
+                    <div class="form-check"><input class="form-check-input" type="radio" name="school_type" value="SOŠ"> Střední odborná škola</div>
+                    <div class="form-check"><input class="form-check-input" type="radio" name="school_type" value="Jiná"> Jiná</div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Název střední školy</label>
+                    <input type="text" name="school_name" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Budu maturovat</label>
+                    <div class="form-check"><input class="form-check-input" type="radio" name="graduation_year" value="2024" required> 2024</div>
+                    <div class="form-check"><input class="form-check-input" type="radio" name="graduation_year" value="2025"> 2025</div>
+                    <div class="form-check"><input class="form-check-input" type="radio" name="graduation_year" value="2026"> 2026</div>
+                    <div class="form-check"><input class="form-check-input" type="radio" name="graduation_year" value="2027+"> 2027 nebo později</div>
+                    <div class="form-check"><input class="form-check-input" type="radio" name="graduation_year" value="již maturoval"> Již jsem maturoval</div>
+                </div>
+
+                <!-- === Studium === -->
+                <hr class="my-4">
+                <h5>Vaše motivace</h5>
+
+                <div class="mb-3">
+                    <label class="form-label">Zvažujete studium na FJFI?</label>
+                    <select class="form-select" name="considering_fjfi" required>
+                        <option value="">-- Vyberte --</option>
+                        <option>ano</option>
+                        <option>spíše ano</option>
+                        <option>spíše ne</option>
+                        <option>ne</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Jak jste se o akci dozvěděl/a?</label>
+                    <div class="form-check"><input type="checkbox" class="form-check-input" name="source" value="učitel"> učitel</div>
+                    <div class="form-check"><input type="checkbox" class="form-check-input" name="source" value="rodič"> rodič</div>
+                    <div class="form-check"><input type="checkbox" class="form-check-input" name="source" value="spolužák"> spolužák</div>
+                    <div class="form-check"><input type="checkbox" class="form-check-input" name="source" value="facebook"> Facebook</div>
+                    <div class="form-check"><input type="checkbox" class="form-check-input" name="source" value="instagram"> Instagram</div>
+                    <div class="form-check"><input type="checkbox" class="form-check-input" name="source" value="web_cvut"> web ČVUT</div>
+                    <div class="form-check"><input type="checkbox" class="form-check-input" name="source" value="web_fjfi"> web FJFI</div>
+                    <div class="form-check"><input type="checkbox" class="form-check-input" name="source" value="newsletter"> newsletter FJFI</div>
+                    <div class="form-check"><input type="checkbox" class="form-check-input" name="source" value="dod"> Den otevřených dveří</div>
+                    <div class="form-check"><input type="checkbox" class="form-check-input" name="source" value="gaudeamus"> Gaudeamus</div>
+                    <div class="form-check"><input type="checkbox" class="form-check-input" name="source" value="noc_vedcu"> Noc vědců</div>
+                    <div class="form-check"><input type="checkbox" class="form-check-input" name="source" value="vedafest"> VědaFest</div>
+                    <div class="form-check"><input type="checkbox" class="form-check-input" name="source" value="veletrh_avcr"> Veletrh AV ČR</div>
+                    <div class="form-check"><input type="checkbox" class="form-check-input" name="source" value="jiné"> jiné</div>
+                </div>
+
+                <!-- === Úlohy a exkurze === -->
+                <hr class="my-4">
+                <h5>Praktické úlohy a exkurze</h5>
+
+                <div class="mb-3">
+                    <label class="form-label">První volba praktické úlohy</label>
+                    <select name="first_choice_exercise" class="form-select" required>
+                        <option value="">-- Vyberte --</option>
+                        <option>Simulátor radioterapie</option>
+                        <option>Radionuklidový ozařovač</option>
+                        <option>Rentgen</option>
+                        <option>Plánování léčby nádorů</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Druhá volba praktické úlohy</label>
+                    <select name="second_choice_exercise" class="form-select">
+                        <option value="">-- Vyberte --</option>
+                        <option>Simulátor radioterapie</option>
+                        <option>Radionuklidový ozařovač</option>
+                        <option>Rentgen</option>
+                        <option>Plánování léčby nádorů</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Primární exkurze</label>
+                    <select name="first_excursion" class="form-select" required>
+                        <option value="">-- Vyberte --</option>
+                        <option>Radioterapie</option>
+                        <option>Nukleární medicína</option>
+                        <option>Radiodiagnostika</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Sekundární exkurze</label>
+                    <select name="second_excursion" class="form-select">
+                        <option value="">-- Vyberte --</option>
+                        <option>Radioterapie</option>
+                        <option>Nukleární medicína</option>
+                        <option>Radiodiagnostika</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Účastním se i s jinou než preferovanou exkurzí</label>
+                    <select name="alternative_excursion_ok" class="form-select" required>
+                        <option value="">-- Vyberte --</option>
+                        <option>Ano</option>
+                        <option>Ne</option>
+                    </select>
+                </div>
+
+                <!-- === Soubory === -->
+                <hr class="my-4">
+                <h5>Souhlas a dokumenty</h5>
+
+                <div class="mb-3">
+                    <label class="form-label">Doporučení od učitele fyziky (PDF)</label>
+                    <input type="file" name="teacher_recommendation" accept=".pdf" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Souhlas se vstupem do kontrolovaného pásma (PDF, pokud &lt; 16 let)</label>
+                    <input type="file" name="controlled_area_consent" accept=".pdf" class="form-control">
+                </div>
+
+                <!-- === GDPR consent === -->
+                <hr class="my-4">
+                <h5>Souhlas se zpracováním osobních údajů (GDPR)</h5>
+
+                <div class="mb-3">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="consent_gdpr" id="gdpr1" value="plnoletý souhlasí" required>
+                        <label class="form-check-label" for="gdpr1">
+                            bylo mi 16 let a touto volbou dávám souhlas
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="consent_gdpr" id="gdpr2" value="neplnoletý PDF">
+                        <label class="form-check-label" for="gdpr2">
+                            nebylo mi 16 let a přikládám PDF
+                        </label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="consent_gdpr" id="gdpr3" value="neplnoletý donese">
+                        <label class="form-check-label" for="gdpr3">
+                            nebylo mi 16 let a potvrzení donesu fyzicky
+                        </label>
+                    </div>
+
+                    <div class="mt-3" id="gdpr-upload" style="display: none;">
+                        <label class="form-label">Nahrát GDPR souhlas zákonného zástupce (PDF)</label>
+                        <input type="file" name="gdpr_consent" accept=".pdf" class="form-control">
+                    </div>
+                </div>
+
+                <!-- === Potvrzení === -->
+                <div class="form-check mb-4">
+                    <input class="form-check-input" type="checkbox" name="confirm_truth" required>
+                    <label class="form-check-label">
+                        Potvrzuji, že výše uvedené informace jsou pravdivé.
+                    </label>
+                </div>
+
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-lg">Odeslat registraci</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript for dynamic GDPR upload field -->
+<script>
+document.querySelectorAll('input[name="consent_gdpr"]').forEach((elem) => {
+    elem.addEventListener("change", function() {
+        const uploadDiv = document.getElementById("gdpr-upload");
+        if (this.value === "neplnoletý PDF") {
+            uploadDiv.style.display = "block";
+        } else {
+            uploadDiv.style.display = "none";
+        }
+    });
+});
+</script>
+
+</body>
+</html>
