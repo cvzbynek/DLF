@@ -25,3 +25,7 @@ credentials.json
 *.DS_Store
 .vscode/
 .idea/
+
+# Galerie – ignoruj obsah, ale ponech složku
+static/gallery/*
+!static/gallery/.gitkeep

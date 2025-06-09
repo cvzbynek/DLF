@@ -61,6 +61,15 @@ def home():
 def register():
     return render_template('form.html')
 
+@app.route('/gallery')
+def gallery():
+    gallery_folder = os.path.join(app.static_folder, 'gallery')
+    image_files = [
+        f'gallery/{filename}'
+        for filename in os.listdir(gallery_folder)
+        if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.webp', '.gif'))
+    ]
+    return render_template('gallery.html', images=image_files)
 
 @app.route('/submit', methods=['POST'])
 def submit():
